@@ -1,0 +1,24 @@
+program rozszerzanie;
+#include ( "stdlib.hhf" );
+
+static
+	bit8:		int8;
+	bit16:	int16;
+	bit32:	int32;
+
+begin rozszerzanie;
+
+	stdout.put("Podaj liczbe od 0 do 127: ");
+	stdin.get(bit8);
+
+	stdout.put( nl,"Znakiem (movsx):",nl,nl );
+
+	movsx( bit8,ax );
+	mov ( ax, bit16 );
+	stdout.put( "rozszerzanie do 16: ",bit16, "(",ax,")H", nl );
+
+	movsx( bit8,eax );
+	mov ( eax, bit32 );
+	stdout.put( "rozszerzanie do 32: ",bit32, "(",eax,"H)", nl );
+
+end rozszerzanie;

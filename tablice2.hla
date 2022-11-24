@@ -1,0 +1,47 @@
+program tablice;
+
+#include("stdlib.hhf")
+
+static
+	
+	i: int32;
+	j: int32;
+	k: int32;
+	tab3: int32[ 3,4,5 ]:= [111,112,113,114,115,
+				      121,122,123,124,125,
+				      131,132,133,134,135,
+				      141,142,143,144,145,
+				     
+				      211,212,213,214,215,
+				      221,222,223,224,225,
+				      231,232,233,234,235,
+				      241,242,243,244,245,
+
+				      311,312,313,314,315,
+				      321,322,323,324,325,
+					331,332,333,334,335,
+					341,342,343,344,345];
+
+begin tablice;
+	
+
+	stdout.put("Ktory i tablicy?: ");
+	stdin.get(i);
+	stdout.put("Ktora j tablicy?: ",nl);
+	stdin.get(j);
+	stdout.put("Ktora k tablicy?: ",nl);
+	stdin.get(k);
+
+	dec(i);
+	dec(j);
+	dec(k);
+	
+	mov(i,ebx);
+	shl(2,ebx);
+	add(j,ebx);
+	intmul(5,ebx);
+	add(k,ebx);
+	stdout.put("To element: ", tab3[ebx*4]);
+	
+	
+end tablice;

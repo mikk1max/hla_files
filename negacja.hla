@@ -1,0 +1,34 @@
+program negacja;
+
+#include("stdlib.hhf")
+
+static
+dodat: int8;
+ujemn: int8;
+
+begin negacja;
+
+
+stdout.put("Podaj liczbe od 0 do 127: ");
+stdin.get(dodat);
+
+stdout.put(nl, "Szesnastkowo: ");
+stdout.putb(dodat);
+
+mov( dodat, al );
+not( al );
+stdout.put(nl, "Po inwers: ", al, nl);
+add( 1,al );
+stdout.put("+1: ", al, nl);
+mov( al, ujemn );
+stdout.put("Wynik: ", ujemn, nl);
+
+stdout.put(nl, "To samo z neg: ",nl);
+mov( dodat, al );
+neg(al);
+mov(al, ujemn);
+stdout.put(nl, "Wynik 16: ",al, nl);
+stdout.put(nl, "Wynik 10: ",ujemn,nl);
+
+
+end negacja;
